@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tasbih Counter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>🌙 Tasbih</h1>
+
+            <button id="darkModeBtn" class="icon-btn">
+                🌙
+            </button>
+        </header>
+
+
+        <!-- Main Counter -->
+        <main>
+
+            <!-- Dhikr Selection -->
+            <section class="card">
+
+                <h2>Choose Dhikr</h2>
+
+                <select id="dhikrSelect">
+                    <option value="SubhanAllah">SubhanAllah</option>
+                    <option value="Alhamdulillah">Alhamdulillah</option>
+                    <option value="Allahu Akbar">Allahu Akbar</option>
+                    <option value="Astaghfirullah">Astaghfirullah</option>
+                    <option value="Custom">Custom</option>
+                </select>
+
+                <input
+                    type="text"
+                    id="customDhikr"
+                    placeholder="Enter your Dhikr"
+                    class="hidden"
+                >
+
+            </section>
+
+
+            <!-- Counter -->
+            <section class="counter-section">
+
+                <p id="currentDhikr">SubhanAllah</p>
+
+                <div id="countDisplay">0</div>
+
+                <p class="target-text">
+                    <span id="count">0</span> /
+                    <span id="target">33</span>
+                </p>
+
+                <!-- Progress -->
+                <div class="progress-container">
+                    <div id="progressBar"></div>
+                </div>
+
+                <!-- Main Count Button -->
+                <button id="countBtn" class="count-btn">
+                    TAP TO COUNT
+                </button>
+
+            </section>
+
+
+            <!-- Controls -->
+            <section class="controls">
+
+                <button id="minusBtn" class="control-btn">
+                    −
+                </button>
+
+                <button id="resetBtn" class="control-btn reset">
+                    Reset
+                </button>
+
+            </section>
+
+
+            <!-- Target -->
+            <section class="card">
+
+                <h2>Set Target</h2>
+
+                <div class="target-buttons">
+
+                    <button data-target="33">33</button>
+                    <button data-target="99">99</button>
+                    <button data-target="100">100</button>
+                    <button data-target="1000">1,000</button>
+
+                </div>
+
+                <input
+                    type="number"
+                    id="customTarget"
+                    placeholder="Custom target"
+                    min="1"
+                >
+
+            </section>
+
+
+            <!-- Theme -->
+            <section class="card">
+
+                <h2>Choose Theme</h2>
+
+                <div class="theme-buttons">
+
+                    <button
+                        class="theme green"
+                        data-color="#198754">
+                    </button>
+
+                    <button
+                        class="theme blue"
+                        data-color="#0d6efd">
+                    </button>
+
+                    <button
+                        class="theme purple"
+                        data-color="#6f42c1">
+                    </button>
+
+                    <button
+                        class="theme orange"
+                        data-color="#fd7e14">
+                    </button>
+
+                    <button
+                        class="theme pink"
+                        data-color="#d63384">
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>Digital Tasbih • Remember Allah</p>
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
