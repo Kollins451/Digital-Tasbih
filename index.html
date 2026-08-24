@@ -1,8 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Mobile-friendly viewport + prevents zoom -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
 
     <title>Tasbih Counter</title>
 
@@ -17,13 +23,17 @@
         <header class="header">
             <h1>🌙 Tasbih</h1>
 
-            <button id="darkModeBtn" class="icon-btn">
+            <button
+                id="darkModeBtn"
+                class="icon-btn"
+                aria-label="Toggle dark mode"
+            >
                 🌙
             </button>
         </header>
 
 
-        <!-- Main Counter -->
+        <!-- Main Content -->
         <main>
 
             <!-- Dhikr Selection -->
@@ -36,7 +46,7 @@
                     <option value="Alhamdulillah">Alhamdulillah</option>
                     <option value="Allahu Akbar">Allahu Akbar</option>
                     <option value="Astaghfirullah">Astaghfirullah</option>
-                    <option value="Custom">Custom</option>
+                    <option value="Custom">Custom Dhikr</option>
                 </select>
 
                 <input
@@ -57,48 +67,87 @@
                 <div id="countDisplay">0</div>
 
                 <p class="target-text">
-                    <span id="count">0</span> /
+                    <span id="count">0</span>
+                    /
                     <span id="target">33</span>
                 </p>
 
-                <!-- Progress -->
+
+                <!-- Progress Bar -->
                 <div class="progress-container">
                     <div id="progressBar"></div>
                 </div>
 
+
                 <!-- Main Count Button -->
-                <button id="countBtn" class="count-btn">
+                <button
+                    id="countBtn"
+                    class="count-btn"
+                    type="button"
+                >
                     TAP TO COUNT
                 </button>
 
             </section>
 
 
-            <!-- Controls -->
+            <!-- Counter Controls -->
             <section class="controls">
 
-                <button id="minusBtn" class="control-btn">
+                <button
+                    id="minusBtn"
+                    class="control-btn"
+                    type="button"
+                    aria-label="Decrease count"
+                >
                     −
                 </button>
 
-                <button id="resetBtn" class="control-btn reset">
+                <button
+                    id="resetBtn"
+                    class="control-btn reset"
+                    type="button"
+                >
                     Reset
                 </button>
 
             </section>
 
 
-            <!-- Target -->
+            <!-- Target Selection -->
             <section class="card">
 
                 <h2>Set Target</h2>
 
                 <div class="target-buttons">
 
-                    <button data-target="33">33</button>
-                    <button data-target="99">99</button>
-                    <button data-target="100">100</button>
-                    <button data-target="1000">1,000</button>
+                    <button
+                        data-target="33"
+                        type="button"
+                    >
+                        33
+                    </button>
+
+                    <button
+                        data-target="99"
+                        type="button"
+                    >
+                        99
+                    </button>
+
+                    <button
+                        data-target="100"
+                        type="button"
+                    >
+                        100
+                    </button>
+
+                    <button
+                        data-target="1000"
+                        type="button"
+                    >
+                        1,000
+                    </button>
 
                 </div>
 
@@ -112,7 +161,7 @@
             </section>
 
 
-            <!-- Theme -->
+            <!-- Theme Selection -->
             <section class="card">
 
                 <h2>Choose Theme</h2>
@@ -121,28 +170,38 @@
 
                     <button
                         class="theme green"
-                        data-color="#198754">
-                    </button>
+                        data-color="#198754"
+                        type="button"
+                        aria-label="Green theme"
+                    ></button>
 
                     <button
                         class="theme blue"
-                        data-color="#0d6efd">
-                    </button>
+                        data-color="#0d6efd"
+                        type="button"
+                        aria-label="Blue theme"
+                    ></button>
 
                     <button
                         class="theme purple"
-                        data-color="#6f42c1">
-                    </button>
+                        data-color="#6f42c1"
+                        type="button"
+                        aria-label="Purple theme"
+                    ></button>
 
                     <button
                         class="theme orange"
-                        data-color="#fd7e14">
-                    </button>
+                        data-color="#fd7e14"
+                        type="button"
+                        aria-label="Orange theme"
+                    ></button>
 
                     <button
                         class="theme pink"
-                        data-color="#d63384">
-                    </button>
+                        data-color="#d63384"
+                        type="button"
+                        aria-label="Pink theme"
+                    ></button>
 
                 </div>
 
@@ -159,7 +218,9 @@
     </div>
 
 
+    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
 </html>
+```
