@@ -1,3 +1,4 @@
+```css
 /* =========================
    GLOBAL SETTINGS
 ========================= */
@@ -7,6 +8,30 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    touch-action: manipulation;
+}
+
+body {
+    touch-action: manipulation;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8f6;
+    color: #1d2924;
+    min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+button,
+select,
+input {
+    touch-action: manipulation;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
 
 :root {
     --primary-color: #198754;
@@ -19,17 +44,9 @@
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
-    color: var(--text-color);
-    min-height: 100vh;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
 
 /* =========================
-   APP CONTAINER
+   APP
 ========================= */
 
 .app {
@@ -53,7 +70,6 @@ body {
 
 .header h1 {
     font-size: 28px;
-    font-weight: 700;
     color: var(--primary-color);
 }
 
@@ -66,16 +82,15 @@ body {
     box-shadow: var(--shadow);
     cursor: pointer;
     font-size: 20px;
-    transition: transform 0.2s ease;
 }
 
-.icon-btn:hover {
-    transform: scale(1.08);
+.icon-btn:active {
+    transform: scale(0.94);
 }
 
 
 /* =========================
-   CARD
+   CARDS
 ========================= */
 
 .card {
@@ -84,7 +99,6 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: var(--shadow);
-    transition: background 0.3s ease;
 }
 
 .card h2 {
@@ -94,7 +108,7 @@ body {
 
 
 /* =========================
-   SELECT & INPUTS
+   INPUTS
 ========================= */
 
 select,
@@ -107,7 +121,6 @@ input {
     color: var(--text-color);
     font-size: 15px;
     outline: none;
-    transition: border 0.2s ease;
 }
 
 select:focus,
@@ -125,7 +138,7 @@ input:focus {
 
 
 /* =========================
-   COUNTER SECTION
+   COUNTER
 ========================= */
 
 .counter-section {
@@ -149,7 +162,6 @@ input:focus {
     font-weight: 700;
     line-height: 1;
     margin-bottom: 15px;
-    letter-spacing: -3px;
 }
 
 .target-text {
@@ -160,7 +172,7 @@ input:focus {
 
 
 /* =========================
-   PROGRESS BAR
+   PROGRESS
 ========================= */
 
 .progress-container {
@@ -182,7 +194,7 @@ input:focus {
 
 
 /* =========================
-   MAIN COUNT BUTTON
+   COUNT BUTTON
 ========================= */
 
 .count-btn {
@@ -196,11 +208,7 @@ input:focus {
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-    transition: transform 0.15s ease, background 0.2s ease;
-}
-
-.count-btn:hover {
-    background: var(--primary-dark);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .count-btn:active {
@@ -209,7 +217,7 @@ input:focus {
 
 
 /* =========================
-   CONTROL BUTTONS
+   CONTROLS
 ========================= */
 
 .controls {
@@ -228,11 +236,11 @@ input:focus {
     box-shadow: var(--shadow);
     font-size: 16px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.control-btn:hover {
-    transform: translateY(-2px);
+.control-btn:active {
+    transform: scale(0.95);
 }
 
 .control-btn:first-child {
@@ -265,18 +273,17 @@ input:focus {
     border-radius: 10px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.target-buttons button:hover {
+.target-buttons button:active {
     background: var(--primary-color);
     color: white;
-    border-color: var(--primary-color);
 }
 
 
 /* =========================
-   THEME COLORS
+   THEMES
 ========================= */
 
 .theme-buttons {
@@ -290,13 +297,12 @@ input:focus {
     height: 42px;
     border-radius: 50%;
     border: 3px solid var(--card-background);
-    outline: 2px solid transparent;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.theme:hover {
-    transform: scale(1.12);
+.theme:active {
+    transform: scale(0.9);
 }
 
 .theme.green {
@@ -351,7 +357,30 @@ body.dark-mode .progress-container {
 
 
 /* =========================
-   MOBILE RESPONSIVE
+   COUNT ANIMATION
+========================= */
+
+@keyframes countPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.count-animation {
+    animation: countPulse 0.15s ease;
+}
+
+
+/* =========================
+   MOBILE
 ========================= */
 
 @media (max-width: 500px) {
@@ -373,4 +402,13 @@ body.dark-mode .progress-container {
     }
 
     .count-btn {
-        width: 165
+        width: 165px;
+        height: 165px;
+        font-size: 16px;
+    }
+
+    .target-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+```
