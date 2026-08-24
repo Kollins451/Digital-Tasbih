@@ -16,10 +16,12 @@ html {
 body {
     touch-action: manipulation;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f8f6;
-    color: #1d2924;
     min-height: 100vh;
-    transition: background 0.3s ease, color 0.3s ease;
+    background: var(--background);
+    color: var(--text-color);
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 button,
@@ -36,12 +38,39 @@ input {
 :root {
     --primary-color: #198754;
     --primary-dark: #126b42;
+
     --background: #f4f8f6;
     --card-background: #ffffff;
+
     --text-color: #1d2924;
     --secondary-text: #6c757d;
+
     --border-color: #e2e8e5;
+    --progress-background: #e9efec;
+
+    --input-background: #ffffff;
+
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+    --background: #080c0a;
+    --card-background: #111815;
+
+    --text-color: #f4f7f5;
+    --secondary-text: #aeb9b4;
+
+    --border-color: #29332f;
+    --progress-background: #29332f;
+
+    --input-background: #171f1b;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 
@@ -52,6 +81,7 @@ input {
 .app {
     width: 100%;
     max-width: 600px;
+    min-height: 100vh;
     margin: 0 auto;
     padding: 20px;
 }
@@ -70,18 +100,29 @@ input {
 
 .header h1 {
     font-size: 28px;
+    font-weight: 700;
     color: var(--primary-color);
 }
 
 .icon-btn {
     width: 45px;
     height: 45px;
-    border: none;
+
+    border: 1px solid var(--border-color);
     border-radius: 50%;
+
     background: var(--card-background);
+    color: var(--text-color);
+
     box-shadow: var(--shadow);
+
     cursor: pointer;
     font-size: 20px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .icon-btn:active {
@@ -95,15 +136,24 @@ input {
 
 .card {
     background: var(--card-background);
+
+    border: 1px solid var(--border-color);
     border-radius: 20px;
+
     padding: 20px;
     margin-bottom: 20px;
+
     box-shadow: var(--shadow);
+
+    transition:
+        background 0.3s ease,
+        border 0.3s ease;
 }
 
 .card h2 {
     font-size: 17px;
     margin-bottom: 15px;
+    color: var(--text-color);
 }
 
 
@@ -114,18 +164,33 @@ input {
 select,
 input {
     width: 100%;
+
     padding: 14px 16px;
+
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    background: var(--card-background);
+
+    background: var(--input-background);
     color: var(--text-color);
+
     font-size: 15px;
+
     outline: none;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border 0.2s ease;
 }
 
 select:focus,
 input:focus {
     border-color: var(--primary-color);
+}
+
+select option {
+    background: var(--input-background);
+    color: var(--text-color);
 }
 
 #customDhikr {
@@ -138,77 +203,118 @@ input:focus {
 
 
 /* =========================
-   COUNTER
+   COUNTER SECTION
 ========================= */
 
 .counter-section {
     background: var(--card-background);
+
+    border: 1px solid var(--border-color);
     border-radius: 25px;
+
     padding: 35px 20px;
+
     text-align: center;
+
     box-shadow: var(--shadow);
+
     margin-bottom: 20px;
+
+    transition:
+        background 0.3s ease,
+        border 0.3s ease;
 }
 
 #currentDhikr {
     font-size: 20px;
     font-weight: 600;
+
     color: var(--primary-color);
+
     margin-bottom: 20px;
 }
 
 #countDisplay {
     font-size: 90px;
     font-weight: 700;
+
     line-height: 1;
+
     margin-bottom: 15px;
+
+    color: var(--text-color);
+
+    letter-spacing: -3px;
 }
 
 .target-text {
     color: var(--secondary-text);
+
     font-size: 15px;
+
     margin-bottom: 15px;
 }
 
 
 /* =========================
-   PROGRESS
+   PROGRESS BAR
 ========================= */
 
 .progress-container {
     width: 100%;
     height: 10px;
-    background: #e9efec;
+
+    background: var(--progress-background);
+
     border-radius: 20px;
+
     overflow: hidden;
+
     margin-bottom: 25px;
 }
 
 #progressBar {
     width: 0%;
     height: 100%;
+
     background: var(--primary-color);
+
     border-radius: 20px;
+
     transition: width 0.3s ease;
 }
 
 
 /* =========================
-   COUNT BUTTON
+   MAIN COUNT BUTTON
 ========================= */
 
 .count-btn {
     width: 190px;
     height: 190px;
+
     border: none;
     border-radius: 50%;
+
     background: var(--primary-color);
-    color: white;
+    color: #ffffff;
+
     font-size: 18px;
     font-weight: 700;
+
     cursor: pointer;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+
     -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.count-btn:hover {
+    background: var(--primary-dark);
 }
 
 .count-btn:active {
@@ -217,26 +323,39 @@ input:focus {
 
 
 /* =========================
-   CONTROLS
+   CONTROL BUTTONS
 ========================= */
 
 .controls {
     display: flex;
     justify-content: center;
+
     gap: 15px;
+
     margin-bottom: 20px;
 }
 
 .control-btn {
-    border: none;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
+
     padding: 13px 25px;
+
     background: var(--card-background);
     color: var(--text-color);
+
     box-shadow: var(--shadow);
+
     font-size: 16px;
+
     cursor: pointer;
+
     -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .control-btn:active {
@@ -245,12 +364,14 @@ input:focus {
 
 .control-btn:first-child {
     font-size: 24px;
+
     width: 55px;
+
     padding: 8px;
 }
 
 .control-btn.reset {
-    color: #dc3545;
+    color: #ff5c5c;
 }
 
 
@@ -260,45 +381,77 @@ input:focus {
 
 .target-buttons {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 10px;
+
     margin-bottom: 15px;
 }
 
 .target-buttons button {
     border: 1px solid var(--border-color);
+
     background: var(--card-background);
     color: var(--text-color);
+
     padding: 12px 5px;
+
     border-radius: 10px;
+
     cursor: pointer;
+
     font-weight: 600;
+
     -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border 0.2s ease;
 }
 
+.target-buttons button:hover,
 .target-buttons button:active {
     background: var(--primary-color);
-    color: white;
+
+    color: #ffffff;
+
+    border-color: var(--primary-color);
 }
 
 
 /* =========================
-   THEMES
+   THEME COLORS
 ========================= */
 
 .theme-buttons {
     display: flex;
+
     gap: 15px;
+
     flex-wrap: wrap;
 }
 
 .theme {
     width: 42px;
     height: 42px;
+
     border-radius: 50%;
+
     border: 3px solid var(--card-background);
+
+    outline: 2px solid transparent;
+
     cursor: pointer;
+
     -webkit-tap-highlight-color: transparent;
+
+    transition: transform 0.2s ease;
+}
+
+.theme:hover {
+    transform: scale(1.12);
 }
 
 .theme:active {
@@ -332,27 +485,12 @@ input:focus {
 
 footer {
     text-align: center;
+
     padding: 20px 0;
+
     color: var(--secondary-text);
+
     font-size: 13px;
-}
-
-
-/* =========================
-   DARK MODE
-========================= */
-
-body.dark-mode {
-    --background: #101513;
-    --card-background: #19211e;
-    --text-color: #f1f5f3;
-    --secondary-text: #a8b3ae;
-    --border-color: #303b36;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-body.dark-mode .progress-container {
-    background: #303b36;
 }
 
 
@@ -361,6 +499,7 @@ body.dark-mode .progress-container {
 ========================= */
 
 @keyframes countPulse {
+
     0% {
         transform: scale(1);
     }
@@ -372,6 +511,7 @@ body.dark-mode .progress-container {
     100% {
         transform: scale(1);
     }
+
 }
 
 .count-animation {
@@ -404,6 +544,7 @@ body.dark-mode .progress-container {
     .count-btn {
         width: 165px;
         height: 165px;
+
         font-size: 16px;
     }
 
